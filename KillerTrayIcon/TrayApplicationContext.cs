@@ -23,6 +23,7 @@ namespace KillerTrayIcon
 
         private void Killer_OnNewProcessKilled(object sender, ProcessEventArgs e)
         {
+            _processIcon.MessageCounter++;
             _processIcon.ShowBalloonTip(1000, "Process Killer", e.ToString(), ToolTipIcon.Warning);
         }
 

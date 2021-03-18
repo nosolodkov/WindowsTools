@@ -8,6 +8,8 @@ namespace KillerTrayIcon
     {
         private readonly NotifyIcon _notifyIcon;
 
+        internal int MessageCounter { get; set; }
+
 
         internal ProcessIcon()
         {
@@ -41,6 +43,7 @@ namespace KillerTrayIcon
 
         internal void ShowBalloonTip(int timeout, string caption, string text, ToolTipIcon icon)
         {
+            _notifyIcon.Text = $"Total tasks killed: {MessageCounter}";
             _notifyIcon.ShowBalloonTip(timeout, caption, text, icon);
         }
     }
